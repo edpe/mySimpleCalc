@@ -5,17 +5,15 @@
  */
 
 import React, { Component } from 'react';
-import {
-  StyleSheet,
-  View
-} from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { Calc } from './src/components/screens';
 
 export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-      </View>
-    );
+      <Calc />
+      </View>);
   }
 }
 
