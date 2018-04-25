@@ -17,7 +17,7 @@ class Calc extends Component{
   }
   render() {
     return (
-      <View style={{ flex: 1, backgroundColor: "green" }}>
+      <View style={{ flex: 1, }}>
       <TextInput
         onChangeText={this.handleInput.bind(this)}
         value={this.state.inputText}
@@ -30,7 +30,7 @@ class Calc extends Component{
 const styles = StyleSheet.create({
   input: {
     backgroundColor: "rgb(41, 41, 41)",
-    height: 150,
+    height: 100,
     width: 100 + "%",
     color: "rgb(255, 255, 255)",
     fontSize: 48,
