@@ -39,9 +39,9 @@ class Calc extends Component {
           value={this.state.inputText}
           style={styles.input}
         />
-        <View style={{flex: 1, flexDirection: "column" }}>
-          { this.validKeys.map((key, i) => {
-            if(i%2==0){
+        <View style={{ flex: 1, flexDirection: "column" }}>
+          {this.validKeys.map((key, i) => {
+            if (i % 2 != 0) {
               return;
             }
             return (
