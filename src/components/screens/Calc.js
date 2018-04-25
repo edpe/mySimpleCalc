@@ -47,11 +47,13 @@ class Calc extends Component {
             return (
               <View style={styles.row}>
                 <TouchableOpacity
-                  onPress={this.handleInput.bind(this, "0")}
+                  onPress={this.handleInput.bind(this, this.validKeys[i])}
                   style={styles.button}>
                   <Text style={styles.btnText}>{this.validKeys[i]}</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity
+                  onPress={this.handleInput.bind(this, this.validKeys[i + 1])}
+                  style={styles.button}>
                   <Text style={styles.btnText}>{this.validKeys[i + 1]}</Text>
                 </TouchableOpacity>
               </View>
