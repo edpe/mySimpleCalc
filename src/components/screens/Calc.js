@@ -5,7 +5,7 @@ class Calc extends Component {
   constructor() {
     super();
     this.state = {
-      inputText: "0"
+      inputText: ""
     };
     this.validKeys = [
       "0",
@@ -28,7 +28,7 @@ class Calc extends Component {
 
   handleInput(text) {
     this.setState({
-      inputText: text
+      inputText: this.state.inputText + text
     });
   }
   render() {
