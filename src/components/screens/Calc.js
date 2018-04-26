@@ -13,8 +13,7 @@ class Calc extends Component {
     this.state = {
       inputText: "",
       pendingOperation: null,
-      firstOperand: "",
-
+      firstOperand: ""
     };
     this.validKeys = [
       "0",
@@ -59,15 +58,15 @@ class Calc extends Component {
   }
 
   calculate() {
-    let result = null
+    let result = null;
     if (this.state.pendingOperation == "+") {
-      result = (Number(this.state.firstOperand) + Number(this.state.inputText));
+      result = Number(this.state.firstOperand) + Number(this.state.inputText);
     } else if (this.state.pendingOperation == "-") {
-      result = (Number(this.state.firstOperand) - Number(this.state.inputText));
+      result = Number(this.state.firstOperand) - Number(this.state.inputText);
     } else if (this.state.pendingOperation == "*") {
-      result = (Number(this.state.firstOperand) * Number(this.state.inputText));
+      result = Number(this.state.firstOperand) * Number(this.state.inputText);
     } else if (this.state.pendingOperation == "/") {
-      result = (Number(this.state.firstOperand) / Number(this.state.inputText));
+      result = Number(this.state.firstOperand) / Number(this.state.inputText);
     } else {
       return;
     }
