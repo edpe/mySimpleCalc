@@ -11,7 +11,8 @@ class Calc extends Component {
   constructor() {
     super();
     this.state = {
-      inputText: ""
+      inputText: "",
+      pendingOperation: null
     };
     this.validKeys = [
       "0",
@@ -41,8 +42,9 @@ class Calc extends Component {
   handleButtonInput(text) {
     if (["+", "-", "*", "/", "="].indexOf(text) > -1) {
       this.setState({
-        inputText: "",
-        firstOperand: this.state.inputText
+        pendingOperation: text,
+        firstOperand: this.state.inputText,
+        inputText: ""
       });
       return;
     }
