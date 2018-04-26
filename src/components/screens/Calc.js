@@ -41,7 +41,8 @@ class Calc extends Component {
   handleButtonInput(text) {
     if (["+", "-", "*", "/", "="].indexOf(text) > -1) {
       this.setState({
-        inputText: ""
+        inputText: "",
+        firstOperand: this.state.inputText
       });
       return;
     }
