@@ -12,7 +12,9 @@ class Calc extends Component {
     super();
     this.state = {
       inputText: "",
-      pendingOperation: null
+      pendingOperation: null,
+      firstOperand: "",
+
     };
     this.validKeys = [
       "0",
@@ -48,7 +50,7 @@ class Calc extends Component {
       });
       return;
     } else if (text === "=") {
-      this.calculate(text);
+      this.calculate();
       return;
     }
     this.setState({
@@ -56,18 +58,25 @@ class Calc extends Component {
     });
   }
 
-  calculate(secondOperand) {
-    switch (this.state.pendingOperation) {
-      case "+":
-        console.log(Number(this.state.firstOperand) + Number(this.state.inputText));
-      case "-":
-        return;
-      case "*":
-        return;
-      case "/":
-        return;
-      default:
+  calculate() {
+    let result = null
+    if (this.state.pendingOperation == "+") {
+      result = (Number(this.state.firstOperand) + Number(this.state.inputText));
+    } else if (this.state.pendingOperation == "-") {
+      result = (Number(this.state.firstOperand) - Number(this.state.inputText));
+    } else if (this.state.pendingOperation == "*") {
+      result = (Number(this.state.firstOperand) * Number(this.state.inputText));
+    } else if (this.state.pendingOperation == "/") {
+      result = (Number(this.state.firstOperand) / Number(this.state.inputText));
+    } else {
+      return;
     }
+    result = result.toString();
+    this.setState({
+      inputText: result,
+      pendingOperation: null,
+      firstOperand: ""
+    });
   }
 
   render() {
