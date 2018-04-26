@@ -1,5 +1,11 @@
 import React, { Component } from "react";
-import { View, TouchableOpacity, Text, TextInput, StyleSheet } from "react-native";
+import {
+  View,
+  TouchableOpacity,
+  Text,
+  TextInput,
+  StyleSheet
+} from "react-native";
 
 class Calc extends Component {
   constructor() {
@@ -28,9 +34,16 @@ class Calc extends Component {
 
   handleInput(text) {
     this.setState({
+      inputText: text
+    });
+  }
+
+  handleButtonInput(text) {
+    this.setState({
       inputText: this.state.inputText + text
     });
   }
+
   render() {
     return (
       <View style={{ flex: 1 }}>
@@ -47,13 +60,18 @@ class Calc extends Component {
             return (
               <View style={styles.row}>
                 <TouchableOpacity
-                  onPress={this.handleInput.bind(this, this.validKeys[i])}
-                  style={styles.button}>
+                  onPress={this.handleButtonInput.bind(this, this.validKeys[i])}
+                  style={styles.button}
+                >
                   <Text style={styles.btnText}>{this.validKeys[i]}</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
-                  onPress={this.handleInput.bind(this, this.validKeys[i + 1])}
-                  style={styles.button}>
+                  onPress={this.handleButtonInput.bind(
+                    this,
+                    this.validKeys[i + 1]
+                  )}
+                  style={styles.button}
+                >
                   <Text style={styles.btnText}>{this.validKeys[i + 1]}</Text>
                 </TouchableOpacity>
               </View>
