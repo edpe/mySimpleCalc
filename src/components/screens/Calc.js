@@ -40,17 +40,34 @@ class Calc extends Component {
   }
 
   handleButtonInput(text) {
-    if (["+", "-", "*", "/", "="].indexOf(text) > -1) {
+    if (["+", "-", "*", "/"].indexOf(text) > -1) {
       this.setState({
         pendingOperation: text,
         firstOperand: this.state.inputText,
         inputText: ""
       });
       return;
+    } else if (text === "=") {
+      this.calculate(text);
+      return;
     }
     this.setState({
       inputText: this.state.inputText + text
     });
+  }
+
+  calculate(secondOperand) {
+    switch (this.state.pendingOperation) {
+      case "+":
+        console.log(Number(this.state.firstOperand) + Number(this.state.inputText));
+      case "-":
+        return;
+      case "*":
+        return;
+      case "/":
+        return;
+      default:
+    }
   }
 
   render() {
