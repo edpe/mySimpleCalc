@@ -6,6 +6,7 @@ import {
   TextInput,
   StyleSheet
 } from "react-native";
+import CalcButton from "../presentation/CalcButton";
 
 class Calc extends Component {
   constructor() {
@@ -93,21 +94,14 @@ class Calc extends Component {
             }
             return (
               <View style={styles.row}>
-                <TouchableOpacity
-                  onPress={this.handleButtonInput.bind(this, this.validKeys[i])}
-                  style={styles.button}
-                >
-                  <Text style={styles.btnText}>{this.validKeys[i]}</Text>
-                </TouchableOpacity>
-                <TouchableOpacity
-                  onPress={this.handleButtonInput.bind(
-                    this,
-                    this.validKeys[i + 1]
-                  )}
-                  style={styles.button}
-                >
-                  <Text style={styles.btnText}>{this.validKeys[i + 1]}</Text>
-                </TouchableOpacity>
+                <CalcButton
+                  handleButtonInput={this.handleButtonInput.bind(this)}
+                  value={this.validKeys[i]}
+                />
+                <CalcButton
+                  handleButtonInput={this.handleButtonInput.bind(this)}
+                  value={this.validKeys[i + 1]}
+                />
               </View>
             );
           })}
@@ -126,17 +120,10 @@ const styles = StyleSheet.create({
     fontSize: 48,
     textAlign: "right"
   },
-  button: {
-    flex: 1,
-    borderWidth: 1,
-    justifyContent: "center",
-    alignItems: "center"
-  },
   row: {
     flex: 1,
     flexDirection: "row"
-  },
-  btnText: { fontSize: 36 }
+  }
 });
 
 export default Calc;
