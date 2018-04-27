@@ -11,11 +11,12 @@ import CalcButton from "../presentation/CalcButton";
 class Calc extends Component {
   constructor() {
     super();
-    this.state = {
+    this.initialState = {
       inputText: "",
       pendingOperation: null,
       firstOperand: ""
     };
+    this.state = this.initialState;
     this.validKeys = [
       "0",
       "1",
@@ -54,11 +55,7 @@ class Calc extends Component {
       this.calculate();
       return;
     } else if (text === "C") {
-      this.setState({
-        inputText: "",
-        pendingOperation: null,
-        firstOperand: ""
-      });
+      this.setState(this.initialState);
     } else {
       this.setState({
         inputText: this.state.inputText + text
