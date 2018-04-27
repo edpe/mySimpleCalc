@@ -31,7 +31,8 @@ class Calc extends Component {
       "-",
       "/",
       "*",
-      "="
+      "=",
+      "C"
     ];
   }
 
@@ -52,10 +53,17 @@ class Calc extends Component {
     } else if (text === "=") {
       this.calculate();
       return;
+    } else if (text === "C") {
+      this.setState({
+        inputText: "",
+        pendingOperation: null,
+        firstOperand: ""
+      });
+    } else {
+      this.setState({
+        inputText: this.state.inputText + text
+      });
     }
-    this.setState({
-      inputText: this.state.inputText + text
-    });
   }
 
   calculate() {
