@@ -59,4 +59,3 @@ In order to perform a series of calculations before pressing '=', I will need to
 
 I also need to style the calculator, I would like to reflect the layout of the ios Calculator and perhaps use Google's material design concepts to keep the layout clear and tasteful.
 
-![My Calculator in it's current form](screenshots/calc-screenshot.png "My Calculator in it's current form")
